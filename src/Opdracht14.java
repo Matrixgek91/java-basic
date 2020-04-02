@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Opdracht14 {
+    public static void main(String[] args) {
+
+        ArrayList<Integer> numList = new ArrayList<Integer>();
+
+        int myNum;
+        int sum = 0;
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter numbers. When done, type exit. Please enter numbers:");
+            while(scanner.hasNextInt()){
+            myNum = scanner.nextInt();
+            if(myNum > 0 && myNum < 21){
+               numList.add(myNum);
+            }else{
+                System.out.println("Invalid number, please try again.");
+            }
+        }
+
+        for (int i : numList){
+            sum = sum + i;
+        }
+
+        System.out.println("The sum of these numbers is: " + sum);
+
+    }
+}
