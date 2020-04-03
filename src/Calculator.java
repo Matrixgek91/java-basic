@@ -6,25 +6,27 @@ import java.awt.event.ActionListener;
 public class Calculator extends JFrame implements ActionListener {
 
     String operator;
-    int firstNumber;
-    int secondNumber;
+    double firstNumber;
+    double secondNumber;
     JLabel display = new JLabel("");
 
     public Calculator() {
-        this.setTitle("Integer calculator without humor");
+        this.setTitle("Double calculator without humor");
         display.setPreferredSize(new Dimension(400,50));
         display.setFont(new Font("Comic Sans MS", Font.BOLD,30));
         String[] labels = {
                 "7", "8", "9", "/",
                 "4", "5", "6", "*",
                 "1", "2", "3", "+",
-                "C", "0", "=", "-" };
+                ".", "0", "=", "-",
+                "C"
+        };
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 4));
+        panel.setLayout(new GridLayout(5, 4));
         getContentPane().add(panel, BorderLayout.CENTER);
 
-        for(int i = 0; i< 16; i++) {
+        for(int i = 0; i< 17; i++) {
             JButton button = new JButton(labels[i]);
             button.setFont(new Font("Comic Sans MS", Font.BOLD,40));
             panel.add(button);
@@ -49,22 +51,21 @@ public class Calculator extends JFrame implements ActionListener {
         String currentButton = e.getActionCommand();
 
         switch (currentButton) {
-            case "0": case "1": case "2": case "3": case "4": case "5": case "6": case "7": case "8": case "9":
+            case "0": case "1": case "2": case "3": case "4": case "5": case "6": case "7": case "8": case "9": case ".":
                 display.setText(display.getText() + currentButton);
                 break;
 
             case "/":case "*":case "+":case "-":
                 operator = currentButton;
-                firstNumber = Integer.parseInt(display.getText());
+                firstNumber = Double.parseDouble(display.getText());
                 display.setText("");
                 break;
             case "C":
                 firstNumber = secondNumber = 0;
                 display.setText("");
-                break;
             case "=":
-                secondNumber = Integer.parseInt(display.getText());
-                int result = 0;
+                secondNumber = Double.parseDouble(display.getText());
+                double result = 0.00;
                 switch (operator){
                     case "+":
                         result = firstNumber + secondNumber;
@@ -84,7 +85,5 @@ public class Calculator extends JFrame implements ActionListener {
             default:
                 System.out.println("System Error");
         }
-
-        System.out.println(currentButton);
     }
 }
