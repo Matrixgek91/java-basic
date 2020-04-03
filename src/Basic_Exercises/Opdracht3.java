@@ -1,3 +1,5 @@
+package Basic_Exercises;
+
 import java.util.Scanner;
 
 import static java.lang.Math.sqrt;

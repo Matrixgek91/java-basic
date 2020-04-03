@@ -1,3 +1,5 @@
+package Basic_Exercises;
+
 public class Opdracht5 {
     public static void main(String[] args) {
         int x;
