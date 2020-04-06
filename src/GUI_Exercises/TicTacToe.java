@@ -56,55 +56,90 @@ public class TicTacToe extends JFrame implements ActionListener {
             System.out.println("De if doet het");
             display.setText("X WINS!");
             winner = true;
-        }else if(ML == "X" && MC == "X" && MR == "X"){
+        }else if(ML.equals("X") && MC.equals("X") && MR.equals("X")){
             display.setText("X WINS!");
             winner = true;
-        }else if(BL == "X" && BC == "X" && BR == "X"){
+        }else if(BL.equals("X") && BC.equals("X") && BR.equals("X")){
             display.setText("X WINS!");
             winner = true;
-        }else if(TL == "X" && ML == "X" && BL == "X"){
+        }else if(TL.equals("X") && ML.equals("X") && BL.equals("X")){
             display.setText("X WINS!");
             winner = true;
-        }else if(TC == "X" && MC == "X" && BC == "X"){
+        }else if(TC.equals("X") && MC.equals("X") && BC.equals("X")){
             display.setText("X WINS!");
             winner = true;
-        }else if(TR == "X" && MR == "X" && BR == "X"){
+        }else if(TR.equals("X") && MR.equals("X") && BR.equals("X")){
             display.setText("X WINS!");
             winner = true;
-        }else if(TL == "X" && MC == "X" && BR == "X"){
+        }else if(TL.equals("X") && MC.equals("X") && BR.equals("X")){
             display.setText("X WINS!");
             winner = true;
-        }else if(TR == "X" && MC == "X" && BL == "X"){
+        }else if(TR.equals("X") && MC.equals("X") && BL.equals("X")){
             display.setText("X WINS!");
             winner = true;
-        }else if(TL == "O" && TC == "O" && TR == "O"){
+        }else if(TL.equals("O") && TC.equals("O") && TR.equals("O")){
             display.setText("O WINS!");
             winner = true;
-        }else if(ML == "O" && MC == "O" && MR == "O"){
+        }else if(ML.equals("O") && MC.equals("O") && MR.equals("O")){
             display.setText("O WINS!");
             winner = true;
-        }else if(BL == "O" && BC == "O" && BR == "O"){
+        }else if(BL.equals("O") && BC.equals("O") && BR.equals("O")){
             display.setText("O WINS!");
             winner = true;
-        }else if(TL == "O" && ML == "O" && BL == "O"){
+        }else if(TL.equals("O") && ML.equals("O") && BL.equals("O")){
             display.setText("O WINS!");
             winner = true;
-        }else if(TC == "O" && MC == "O" && BC == "O"){
+        }else if(TC.equals("O") && MC.equals("O") && BC.equals("O")){
             display.setText("O WINS!");
             winner = true;
-        }else if(TR == "O" && MR == "O" && BR == "O"){
+        }else if(TR.equals("O") && MR.equals("O") && BR.equals("O")){
             display.setText("O WINS!");
             winner = true;
-        }else if(TL == "O" && MC == "O" && BR == "O"){
+        }else if(TL.equals("O") && MC.equals("O") && BR.equals("O")){
             display.setText("O WINS!");
             winner = true;
-        }else if(TR == "O" && MC == "O" && BL == "O"){
+        }else if(TR.equals("O") && MC.equals("O") && BL.equals("O")){
             display.setText("O WINS!");
             winner = true;
-        }else if(TL != "" && TC != "" && TR != "" && ML != "" && MC != "" && MR != "" && BL != "" && BC != "" && BR != ""){
+        }else if(!TL.equals("") && !TC.equals("") && !TR.equals("") && !ML.equals("") && !MC.equals("") && !MR.equals("") && !BL.equals("") && !BC.equals("") && !BR.equals("")){
             draw = true;
         }
+
     }
+
+    public void WinDialog() {
+        JDialog winDialog = new JDialog();
+        JLabel dialogMessage = new JLabel("GAME OVER");
+        JButton restartButton = new JButton("Restart the game");
+        winDialog.add(dialogMessage, BorderLayout.NORTH);
+        winDialog.add(restartButton, BorderLayout.SOUTH);
+        winDialog.setSize(300, 200);
+        winDialog.setVisible(true);
+        restartButton.addActionListener(this);
+    }
+
+    public void WinOptionPane() {
+        String message = "Test Message";
+        JFrame frame = new JFrame();
+        int winPane = JOptionPane.showConfirmDialog(
+                frame,
+                message,
+                "GAME OVER",
+                JOptionPane.OK_CANCEL_OPTION);
+        if (winPane == JOptionPane.OK_OPTION){
+            TL = TC = TR = ML = MC = MR = BL = BC = BR = "";
+        }else if (winPane == JOptionPane.CANCEL_OPTION){
+            TL = TC = TR = ML = MC = MR = BL = BC = BR = "";
+        }
+
+
+    }
+
+    public void gameRestart() {
+        TL = TC = TR = ML = MC = MR = BL = BC = BR = "";
+        dispose();
+    }
+
 
 
     public static void main(String[] args) {
@@ -120,99 +155,106 @@ public class TicTacToe extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton clickedButton = (JButton)e.getSource();
         String currentButton = clickedButton.getName();
+        String resetClicked = e.getActionCommand();
         System.out.println(currentButton);
 
-        if (whoTurn == "X"){
-            switch (currentButton){
-                case "TL":
-                    clickedButton.setText("X");
-                    TL = "X";
-                    break;
-                case "TC":
-                    clickedButton.setText("X");
-                    TC = "X";
-                    break;
-                case "TR":
-                    clickedButton.setText("X");
-                    TR = "X";
-                    break;
-                case "ML":
-                    clickedButton.setText("X");
-                    ML = "X";
-                    break;
-                case "MC":
-                    clickedButton.setText("X");
-                    MC = "X";
-                    break;
-                case "MR":
-                    clickedButton.setText("X");
-                    MR = "X";
-                    break;
-                case "BL":
-                    clickedButton.setText("X");
-                    BL = "X";
-                    break;
-                case "BC":
-                    clickedButton.setText("X");
-                    BC = "X";
-                    break;
-                case "BR":
-                    clickedButton.setText("X");
-                    BR = "X";
-                    break;
-                default:
-                    display.setText("ERROR");
-                    break;
-            }
+         if(resetClicked.equals("Restart the game")){
+             gameRestart();
+         }else if (whoTurn.equals("X")){
+                switch (currentButton){
+                    case "TL":
+                        clickedButton.setText("X");
+                        TL = "X";
+                        break;
+                    case "TC":
+                        clickedButton.setText("X");
+                        TC = "X";
+                        break;
+                    case "TR":
+                        clickedButton.setText("X");
+                        TR = "X";
+                        break;
+                    case "ML":
+                        clickedButton.setText("X");
+                        ML = "X";
+                        break;
+                    case "MC":
+                        clickedButton.setText("X");
+                        MC = "X";
+                        break;
+                    case "MR":
+                        clickedButton.setText("X");
+                        MR = "X";
+                        break;
+                    case "BL":
+                        clickedButton.setText("X");
+                        BL = "X";
+                        break;
+                    case "BC":
+                        clickedButton.setText("X");
+                        BC = "X";
+                        break;
+                    case "BR":
+                        clickedButton.setText("X");
+                        BR = "X";
+                        break;
+                    default:
+                        display.setText("ERROR");
+                        break;
+                }
 
-            whoTurn = "O";
+                whoTurn = "O";
 
-        }else if(whoTurn == "O"){
-            switch (currentButton){
-                case "TL":
-                    clickedButton.setText("O");
-                    TL = "O";
-                    break;
-                case "TC":
-                    clickedButton.setText("O");
-                    TC = "O";
-                    break;
-                case "TR":
-                    clickedButton.setText("O");
-                    TR = "O";
-                    break;
-                case "ML":
-                    clickedButton.setText("O");
-                    ML = "O";
-                    break;
-                case "MC":
-                    clickedButton.setText("O");
-                    MC = "O";
-                    break;
-                case "MR":
-                    clickedButton.setText("O");
-                    MR = "O";
-                    break;
-                case "BL":
-                    clickedButton.setText("O");
-                    BL = "O";
-                    break;
-                case "BC":
-                    clickedButton.setText("O");
-                    BC = "O";
-                    break;
-                case "BR":
-                    clickedButton.setText("O");
-                    BR = "O";
-                    break;
-                default:
-                    display.setText("ERROR");
-                    break;
-            }
+            }else if(whoTurn.equals("O")){
+                switch (currentButton){
+                    case "TL":
+                        clickedButton.setText("O");
+                        TL = "O";
+                        break;
+                    case "TC":
+                        clickedButton.setText("O");
+                        TC = "O";
+                        break;
+                    case "TR":
+                        clickedButton.setText("O");
+                        TR = "O";
+                        break;
+                    case "ML":
+                        clickedButton.setText("O");
+                        ML = "O";
+                        break;
+                    case "MC":
+                        clickedButton.setText("O");
+                        MC = "O";
+                        break;
+                    case "MR":
+                        clickedButton.setText("O");
+                        MR = "O";
+                        break;
+                    case "BL":
+                        clickedButton.setText("O");
+                        BL = "O";
+                        break;
+                    case "BC":
+                        clickedButton.setText("O");
+                        BC = "O";
+                        break;
+                    case "BR":
+                        clickedButton.setText("O");
+                        BR = "O";
+                        break;
+                    default:
+                        display.setText("ERROR");
+                        break;
+                }
 
-            whoTurn = "X";
+                whoTurn = "X";
 
-    }
+        }
         CheckWin();
+
+        if(winner || draw) WinOptionPane();
+
+        }
 }
-}
+
