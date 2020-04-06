@@ -51,9 +51,7 @@ public class TicTacToe extends JFrame implements ActionListener {
     }
 
     public void CheckWin(){
-        System.out.println("Checkwin doet het");
         if(TL.equals("X") && TC.equals("X") && TR.equals("X")){
-            System.out.println("De if doet het");
             display.setText("X WINS!");
             winner = true;
         }else if(ML.equals("X") && MC.equals("X") && MR.equals("X")){
@@ -120,24 +118,26 @@ public class TicTacToe extends JFrame implements ActionListener {
 
     public void WinOptionPane() {
         String message = "Test Message";
-        JFrame frame = new JFrame();
         int winPane = JOptionPane.showConfirmDialog(
-                frame,
+                null,
                 message,
                 "GAME OVER",
-                JOptionPane.OK_CANCEL_OPTION);
-        if (winPane == JOptionPane.OK_OPTION){
-            TL = TC = TR = ML = MC = MR = BL = BC = BR = "";
-        }else if (winPane == JOptionPane.CANCEL_OPTION){
-            TL = TC = TR = ML = MC = MR = BL = BC = BR = "";
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+        System.out.println(winPane);
+
+        if (winPane == 0) {
+           gameRestart();
         }
-
-
     }
 
+
     public void gameRestart() {
+        whoTurn = "X";
+        winner = false;
+        draw = false;
         TL = TC = TR = ML = MC = MR = BL = BC = BR = "";
-        dispose();
+        display.setText("Play a game of TicTacToe");
     }
 
 
@@ -156,7 +156,6 @@ public class TicTacToe extends JFrame implements ActionListener {
         JButton clickedButton = (JButton)e.getSource();
         String currentButton = clickedButton.getName();
         String resetClicked = e.getActionCommand();
-        System.out.println(currentButton);
 
          if(resetClicked.equals("Restart the game")){
              gameRestart();
