@@ -34,6 +34,9 @@ public class TicTacToe extends JFrame implements ActionListener {
             "BL", "BC", "BR"
     };
 
+    JButton[] buttons = new JButton[9];
+
+
     public TicTacToe(){
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3,3));
@@ -42,10 +45,10 @@ public class TicTacToe extends JFrame implements ActionListener {
         getContentPane().add(panel, BorderLayout.SOUTH);
 
         for (int i = 0 ; i < 9 ; i++){
-            JButton button = new JButton(labels [i]);
-            button.setName(names [i]);
-            panel.add(button);
-            button.addActionListener(this);
+            buttons[i] = new JButton(labels[i]);
+            panel.add(buttons[i]);
+            buttons[i].setName(names[i]);
+            buttons[i].addActionListener(this);
         }
 
     }
