@@ -1,10 +1,12 @@
 package ObjectOriented_Excercises.Cars;
 
-public class Bike extends Car implements Vehicle {
-
+public class Bike implements Vehicle {
+    private String brand;
+    private String color;
 
     public Bike(String brand, String color) {
-        super(brand, color);
+        this.brand = brand;
+        this.color = color;
     }
 
     @Override
