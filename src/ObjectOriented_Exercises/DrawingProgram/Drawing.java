@@ -2,12 +2,16 @@ package ObjectOriented_Exercises.DrawingProgram;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-public class Drawing extends JFrame implements MouseListener {
+public class Drawing extends JFrame implements MouseListener, ActionListener {
 
+    String[] figureType = {"Line", "Rectangle", "Oval"};
+    String drawType = "Line";
     ArrayList<Figure> figures = new ArrayList<>();
 
     Figure figure = new Oval();
@@ -15,7 +19,11 @@ public class Drawing extends JFrame implements MouseListener {
 
 
     public Drawing() {
+        this.setTitle("Drawing");
         this.addMouseListener(this);
+        JComboBox typeSelect = new JComboBox(figureType);
+        getContentPane().add(typeSelect,BorderLayout.NORTH);
+        typeSelect.addActionListener(this);
     }
 
 
@@ -39,7 +47,18 @@ public class Drawing extends JFrame implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        figure = new Line();
+        switch (drawType) {
+            case "Line":
+                figure = new Line();
+                break;
+            case "Rectangle":
+                figure = new Rectangle();
+                break;
+            case "Oval":
+                figure = new Oval();
+                break;
+        }
+
         figure.x1 = e.getX();
         figure.y1 = e.getY();
     }
@@ -50,6 +69,14 @@ public class Drawing extends JFrame implements MouseListener {
         figure.y2 = e.getY();
         figures.add(figure);
         repaint();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JComboBox cb = (JComboBox)e.getSource();
+        String selectedType = (String)cb.getSelectedItem();
+        drawType = selectedType;
+        System.out.println(selectedType);
     }
 
 
