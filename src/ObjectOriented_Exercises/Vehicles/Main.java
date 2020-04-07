@@ -1,4 +1,4 @@
-package ObjectOriented_Excercises.Cars;
+package ObjectOriented_Exercises.Vehicles;
 
 public class Main {
     public static void main(String[] args) {

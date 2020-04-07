@@ -1,4 +1,4 @@
-package ObjectOriented_Excercises.Cars;
+package ObjectOriented_Exercises.Vehicles;
 
 public class Car implements Vehicle {
     private String brand;
