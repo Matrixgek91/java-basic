@@ -39,7 +39,7 @@ public class Drawing extends JFrame implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        figure = new Rectangle();
+        figure = new Line();
         figure.x1 = e.getX();
         figure.y1 = e.getY();
     }
