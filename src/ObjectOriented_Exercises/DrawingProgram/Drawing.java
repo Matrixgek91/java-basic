@@ -16,8 +16,6 @@ public class Drawing extends JFrame implements MouseListener, ActionListener {
 
     Figure figure = new Line();
 
-
-
     public Drawing() {
         this.setTitle("Drawing");
         this.addMouseListener(this);
@@ -25,11 +23,6 @@ public class Drawing extends JFrame implements MouseListener, ActionListener {
         getContentPane().add(typeSelect,BorderLayout.NORTH);
         typeSelect.addActionListener(this);
     }
-
-
-
-
-
     public static void main(String[] args) {
         Drawing drawing = new Drawing();
         drawing.setSize(500,500);
@@ -47,10 +40,6 @@ public class Drawing extends JFrame implements MouseListener, ActionListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-//        figure.xCoordinates.add(e.getX());
-//        figure.yCoordinates.add(e.getY());
-//        figure.pointCount++;
-
         switch (drawType) {
             case "Line":
                 if (figure.pointCount == 0){
@@ -151,11 +140,6 @@ public class Drawing extends JFrame implements MouseListener, ActionListener {
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
     public void actionPerformed(ActionEvent e) {
         JComboBox cb = (JComboBox)e.getSource();
         String selectedType = (String)cb.getSelectedItem();
@@ -179,6 +163,11 @@ public class Drawing extends JFrame implements MouseListener, ActionListener {
 
 
 
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
