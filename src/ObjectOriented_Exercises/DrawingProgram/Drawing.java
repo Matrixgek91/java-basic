@@ -19,8 +19,12 @@ public class Drawing extends JFrame implements MouseListener, ActionListener {
     public Drawing() {
         this.setTitle("Drawing");
         this.addMouseListener(this);
+        JPanel shapeSelectionPanel = new JPanel();
+        JLabel shapePrompt = new JLabel("Select shape: ");
         JComboBox typeSelect = new JComboBox(figureType);
-        getContentPane().add(typeSelect,BorderLayout.NORTH);
+        getContentPane().add(shapeSelectionPanel,BorderLayout.NORTH);
+        shapeSelectionPanel.add(shapePrompt);
+        shapeSelectionPanel.add(typeSelect);
         typeSelect.addActionListener(this);
     }
     public static void main(String[] args) {
