@@ -43,13 +43,11 @@ public class Drawing extends JFrame implements MouseListener, ActionListener {
         switch (drawType) {
             case "Line":
                 if (figure.pointCount == 0){
-                    System.out.println("0");
                     figure = new Line();
                     figure.xCoordinates.add(e.getX());
                     figure.yCoordinates.add(e.getY());
                     figure.pointCount++;
                 }else if (figure.pointCount == 1){
-                    System.out.println("1");
                     figure.xCoordinates.add(e.getX());
                     figure.yCoordinates.add(e.getY());
                     figure.x1 = figure.xCoordinates.get(0);
@@ -65,13 +63,11 @@ public class Drawing extends JFrame implements MouseListener, ActionListener {
                 break;
             case "Rectangle":
                 if (figure.pointCount == 0){
-                    System.out.println("0");
                     figure = new Rectangle();
                     figure.xCoordinates.add(e.getX());
                     figure.yCoordinates.add(e.getY());
                     figure.pointCount++;
                 }else if (figure.pointCount == 1){
-                    System.out.println("1");
                     figure.xCoordinates.add(e.getX());
                     figure.yCoordinates.add(e.getY());
                     figure.x1 = figure.xCoordinates.get(0);
@@ -87,13 +83,11 @@ public class Drawing extends JFrame implements MouseListener, ActionListener {
                 break;
             case "Oval":
                 if (figure.pointCount == 0){
-                    System.out.println("0");
                     figure = new Oval();
                     figure.xCoordinates.add(e.getX());
                     figure.yCoordinates.add(e.getY());
                     figure.pointCount++;
                 }else if (figure.pointCount == 1){
-                    System.out.println("1");
                     figure.xCoordinates.add(e.getX());
                     figure.yCoordinates.add(e.getY());
                     figure.x1 = figure.xCoordinates.get(0);
@@ -109,18 +103,15 @@ public class Drawing extends JFrame implements MouseListener, ActionListener {
                 break;
             case "Triangle":
                 if (figure.pointCount == 0){
-                    System.out.println("0");
                     figure = new Triangle();
                     figure.xCoordinates.add(e.getX());
                     figure.yCoordinates.add(e.getY());
                     figure.pointCount++;
                 }else if (figure.pointCount == 1) {
-                    System.out.println("1");
                     figure.xCoordinates.add(e.getX());
                     figure.yCoordinates.add(e.getY());
                     figure.pointCount++;
                 }else if (figure.pointCount == 2){
-                    System.out.println("2");
                     figure.xCoordinates.add(e.getX());
                     figure.yCoordinates.add(e.getY());
                     figure.x1 = figure.xCoordinates.get(0);
