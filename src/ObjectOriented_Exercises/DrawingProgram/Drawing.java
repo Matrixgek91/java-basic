@@ -139,7 +139,6 @@ public class Drawing extends JFrame implements MouseListener, ActionListener {
         JComboBox cb = (JComboBox)e.getSource();
         String selectedType = (String)cb.getSelectedItem();
         drawType = selectedType;
-        System.out.println(selectedType);
     }
 
 
